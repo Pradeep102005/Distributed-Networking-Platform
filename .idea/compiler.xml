@@ -15,6 +15,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <processorPath>
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="notification-service" />
         <module name="userService" />
         <module name="APIGateway" />
       </profile>
@@ -25,6 +29,7 @@
       <module name="APIGateway" options="-parameters" />
       <module name="ConnectionsService" options="-parameters" />
       <module name="DiscoverServer" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="postsService" options="-parameters" />
       <module name="userService" options="-parameters" />
     </option>
