@@ -2,6 +2,7 @@ package com.codingshuttle.linkedInProject.postsService.service;
 
 import com.codingshuttle.linkedInProject.postsService.auth.AuthContextHolder;
 import com.codingshuttle.linkedInProject.postsService.client.ConnectionsServiceClient;
+import com.codingshuttle.linkedInProject.postsService.client.UploaderServiceClient;
 import com.codingshuttle.linkedInProject.postsService.dto.PersonDto;
 import com.codingshuttle.linkedInProject.postsService.dto.PostCreateRequestDto;
 import com.codingshuttle.linkedInProject.postsService.dto.PostDto;
@@ -13,8 +14,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,11 +31,17 @@ public class PostService {
     private final ModelMapper modelMapper;
     private final ConnectionsServiceClient connectionsServiceClient;
     private final KafkaTemplate<Long, PostCreated> postCreatedKafkaTemplate;
+    private final UploaderServiceClient uploaderServiceClient;
 
-    public PostDto createPost(PostCreateRequestDto postCreateRequestDto, Long userId) {
+    public PostDto createPost(PostCreateRequestDto postCreateRequestDto, MultipartFile file) {
+        Long userId = AuthContextHolder.getCurrentUserId();
         log.info("Creating post for user with id: {}", userId);
+
+        ResponseEntity<String> imageUrl = uploaderServiceClient.uploadFile(file);
+
         Post post = modelMapper.map(postCreateRequestDto, Post.class);
         post.setUserId(userId);
+        post.setImageUrl(imageUrl.getBody());
         post = postRepository.save(post);
 
         List<PersonDto> personDtoList = connectionsServiceClient.getFirstDegreeConnections(userId);

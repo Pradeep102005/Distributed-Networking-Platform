@@ -11,7 +11,7 @@
 	<groupId>com.codingshuttle.linkedInProject</groupId>
 	<artifactId>postsService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>postsService</name>
+	<name>posts-service</name>
 	<description>Posts Service for LinkedIn Project</description>
 	<url/>
 	<licenses>
@@ -102,6 +102,27 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.4</version>
+				<configuration>
+					<to>
+						<image>docker.io/anuj55149/linkedin-app-${project.name}:${project.version}</image>
+						<tags>
+							<tag>latest</tag>
+						</tags>
+					</to>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
