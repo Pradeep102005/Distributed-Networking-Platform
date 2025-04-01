@@ -3,8 +3,8 @@ eureka.client:
   fetch-registry: false
 
 USER_SERVICE_URI: http://user-service
-POSTS_SERVICE_URI: http://connections-service
-CONNECTIONS_SERVICE_URI: http://posts-service
+POSTS_SERVICE_URI: http://posts-service
+CONNECTIONS_SERVICE_URI: http://connections-service
 NOTIFICATION_SERVICE_URI: http://notification-service
 
 management:
