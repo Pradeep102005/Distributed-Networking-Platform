@@ -291,7 +291,7 @@ All services and databases are deployed on Kubernetes with the following resourc
 Images are built using the **Google Jib Maven Plugin** (no Docker daemon required) and pushed to Docker Hub:
 
 ```
-docker.io/anuj55149/linkedin-app-{service-name}:latest
+docker.io/pradeep102005/linkedin-app-{service-name}:latest
 ```
 
 Build & push with:
@@ -436,15 +436,16 @@ Distributed-Networking-Platform/
 
 ---
 
-## 🤝 Contributing
+## 👨‍💻 Author
 
-Contributions, issues, and feature requests are welcome!
+**Pradeep Palakodeti**
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+This project was designed and built entirely from scratch as a deep-dive into distributed systems, microservices architecture, and cloud-native engineering.
+
+- 🐙 GitHub: [@Pradeep102005](https://github.com/Pradeep102005)
+- 📧 Email: pradeeppalakodeti24@gmail.com
+
+If you find this project useful or interesting, feel free to ⭐ star the repository!
 
 ---
 
