@@ -1,4 +1,4 @@
-package com.codingshuttle.linkedInProject.ConnectionsService.consumer;
+fpackage com.codingshuttle.linkedInProject.ConnectionsService.consumer;
 
 import com.codingshuttle.linkedInProject.ConnectionsService.service.PersonService;
 import com.codingshuttle.linkedInProject.userService.event.UserCreatedEvent;
